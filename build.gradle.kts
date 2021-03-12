@@ -46,7 +46,7 @@ dependencies {
     implementation("org.mariadb.jdbc:mariadb-java-client:2.7.0")
     kapt("com.querydsl:querydsl-apt:4.2.2:jpa")
 
-    annotationProcessor("com.querydsl:querydsl-apt:jpa")
+    //annotationProcessor("com.querydsl:querydsl-apt:jpa")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
