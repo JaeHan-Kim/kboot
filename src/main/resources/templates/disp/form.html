@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/defaultLayout}">
+
+<head>
+	<title>form</title>
+	<!-- test -->
+</head>
+<div layout:fragment="content">
+	<h1 th:text="${title}">asdad</h1>
+	<div id="form">
+		<form>
+			<div class="row">
+				<div class="six columns">
+					<label for="exampleEmailInput">Your email</label>
+					<input class="u-full-width" type="email" placeholder="test@mailbox.com" v-model="form.email">
+				</div>
+				<div class="six columns">
+					<label for="exampleRecipientInput">Reason for contacting</label>
+					<select class="u-full-width" id="exampleRecipientInput">
+						<option value="Option 1">Questions</option>
+						<option value="Option 2">Admiration</option>
+						<option value="Option 3">Can I get your number?</option>
+					</select>
+				</div>
+			</div>
+			<label for="exampleMessage">Message</label>
+			<textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
+			<label class="example-send-yourself-copy">
+				<input type="checkbox">
+				<span class="label-body">Send a copy to yourself</span>
+			</label>
+		</form>
+		<button @click="save">버튼</button>
+		<input type="file" @change="fileSubmit" multiple />
+	</div>
+</div>
+<th:block layout:fragment="user_script">
+	<script th:inline="javascript">
+		let form = new Vue({
+			el: '#form',
+			data: {
+				form: {
+					name: 'a',
+					email: '',
+					image: '',
+				}
+			},
+			methods: {
+				save: function () {
+					console.log(this.form.image.length);
+					console.log(this.form.image);
+					axios({
+						method: 'post',
+						url: 'http://localhost:8080/api/save',
+						data: this.form,
+					}).then(function (response) {
+						console.log(response);
+					});
+
+				},
+				fileSubmit: function (event) {
+					let fileList = event.target.files;
+					if (fileList) {
+						const files = Array.from(event.target.files);
+						Promise.all(files.map(file => {
+							return (new Promise((resolve, reject) => {
+								let reader = new FileReader();
+								reader.addEventListener('load', ev => {
+									console.log(ev.target.result);
+									console.log(ev.name);
+									resolve(ev.target.result);
+								});
+								reader.addEventListener('error', reject);
+								reader.readAsDataURL(file);
+							}));
+						}))
+							.then(images => {
+								console.log(images);
+								console.log(`images $images[0]`);
+								this.form.image = images;
+							}, error => {
+								console.error(error);
+							});
+					}
+				}
+			}
+		});
+	</script>
+</th:block>
+
+</html>

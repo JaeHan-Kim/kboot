@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html
+	lang="ko"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+	<meta charset="UTF-8">
+	<!-- bbbb -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/skeleton.css}">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/vue.min.js}"></script>
+</head>
+<body style="margin: 10px;">
+<header th:replace="~{fragments/commonHeader :: headerFragment}"></header>
+
+<div layout:fragment="content"></div>
+
+<footer th:replace="~{fragments/commonFooter :: footerFragment}"></footer>
+
+<th:block layout:fragment="user_script"></th:block>
+</body>
+</html>
