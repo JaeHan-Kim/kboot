@@ -26,3 +26,4 @@ indent_size = 2
 
 [*.{kt,kts}]
 disabled_rules=import-ordering
+insert_final_newline = true
