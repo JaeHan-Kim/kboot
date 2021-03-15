@@ -1,5 +1,5 @@
 package com.rude.kboot.dto
 
-data class Form (
-    val image: List<String>
+data class Form(
+    val images: List<String>
 )

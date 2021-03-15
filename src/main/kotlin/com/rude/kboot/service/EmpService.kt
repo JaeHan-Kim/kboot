@@ -6,7 +6,7 @@ import com.rude.kboot.repository.EmpRepository
 import org.springframework.stereotype.Service
 
 @Service
-class EmpService (val empRepository: EmpRepository) {
+class EmpService(val empRepository: EmpRepository) {
 
     fun selectAllEmployees(): List<EmployeeDto> {
 

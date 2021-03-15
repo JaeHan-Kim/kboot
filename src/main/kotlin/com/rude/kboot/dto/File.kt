@@ -1,6 +1,6 @@
 package com.rude.kboot.dto
 
-data class File (
+data class File(
     val fileName: String,
     val base64data: String
 )

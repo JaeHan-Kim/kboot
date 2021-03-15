@@ -7,9 +7,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-class WebConfig: WebMvcConfigurer {
+class WebConfig : WebMvcConfigurer {
 
-    private val log = LoggerFactory.getLogger(this.javaClass);
+    private val log = LoggerFactory.getLogger(this.javaClass)
 
     @Value("\${resources.location}")
     lateinit var resourcesLocation: String
@@ -21,7 +21,6 @@ class WebConfig: WebMvcConfigurer {
         log.info("test1 $resourcesLocation")
         log.info("test2 $resourcesUriPath")
         registry.addResourceHandler("/image/**")
-                .addResourceLocations("file:///tmp/image/");
+            .addResourceLocations("file:///tmp/image/")
     }
-
 }

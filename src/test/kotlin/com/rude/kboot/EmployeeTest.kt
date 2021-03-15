@@ -22,7 +22,7 @@ class EmployeeTest {
     private lateinit var empRepository: EmpRepository
 
     @BeforeEach
-    fun setup(){
+    fun setup() {
         val jordan = Employee("Jordan")
         empRepository.save(jordan)
 
@@ -32,9 +32,10 @@ class EmployeeTest {
         val firefighter1 = Employee("소방관#1")
         empRepository.save(firefighter1)
     }
+
     @Test
     @DisplayName("QueryDsl 설정 제대로 잡혔나 확인하는 테스트 코드 #1")
-    fun testQuerydslConfigurationRepository(){
+    fun testQuerydslConfigurationRepository() {
         val employees = empService.selectAllEmployees()
         assertThat(employees.size).isEqualTo(3)
     }
