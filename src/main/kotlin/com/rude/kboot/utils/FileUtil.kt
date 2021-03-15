@@ -50,7 +50,7 @@ class FileUtil {
         }
 
         log.info("ds $newFileNm / $fileType / ${imageBytes.size}")
-        log.info("file full path -> $path$newFileNm.$fileType")
+        log.info("file full path -> $path/$newFileNm.$fileType")
         FileUtils.writeByteArrayToFile(File("$path/$newFileNm.$fileType"), imageBytes)
         return ""
     }
