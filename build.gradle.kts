@@ -45,9 +45,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    implementation("com.querydsl:querydsl-jpa:4.2.1")
+    implementation("com.querydsl:querydsl-jpa")
     implementation("org.mariadb.jdbc:mariadb-java-client:2.7.0")
-    kapt("com.querydsl:querydsl-apt:4.2.2:jpa")
+    kapt("com.querydsl:querydsl-apt::jpa")
 
     implementation("au.com.console:kassava:2.1.0")
 
