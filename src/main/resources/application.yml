@@ -27,6 +27,7 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+    org.hibernate.type: trace
 resources:
   location: /tmp/image/
   uri-path: /image

@@ -22,11 +22,12 @@ class SeqDetail(
     @Id @Column(name = "SEQ_KEY")
     var seqKey: String,
     @Column
-    var num: Int,
+    var num: Int
+) : Serializable {
+
     @ManyToOne(targetEntity = SeqMaster::class, fetch = FetchType.LAZY)
     @JoinColumn(name = "SEQ_ID", insertable = false, updatable = false)
-    var seqMaster: SeqMaster?
-) : Serializable {
+    var seqMaster: SeqMaster? = null
 
     fun increaseNum() {
         this.num++

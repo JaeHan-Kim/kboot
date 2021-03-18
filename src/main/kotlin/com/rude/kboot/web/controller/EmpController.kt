@@ -2,6 +2,7 @@ package com.rude.kboot.web.controller
 
 import com.rude.kboot.dto.EmployeeDto
 import com.rude.kboot.service.EmpService
+import com.rude.kboot.service.SequenceService
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RestController
@@ -13,17 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable
 
 @RestController
 class EmpController(
-    val empService: EmpService
+    val empService: EmpService,
+    val sequenceService: SequenceService
 ) {
     private val log = LoggerFactory.getLogger(this.javaClass)
 
     @GetMapping("/emps")
-    fun empList(): List<EmployeeDto> {
+    fun getEmps(): List<EmployeeDto> {
         return empService.selectAllEmployees()
     }
 
     @PostMapping("/emps")
-    fun emp(@RequestBody employeeDto: EmployeeDto): ResponseEntity<Any> {
+    fun saveEmp(@RequestBody employeeDto: EmployeeDto): ResponseEntity<Any> {
 
         return ResponseEntity
             .ok()

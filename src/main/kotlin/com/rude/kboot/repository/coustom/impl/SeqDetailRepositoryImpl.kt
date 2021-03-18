@@ -9,7 +9,7 @@ import com.rude.kboot.repository.coustom.SeqDetailRepositoryCustom
 class SeqDetailRepositoryImpl(
     private val queryFactory: JPAQueryFactory
 ) : SeqDetailRepositoryCustom {
-    override fun findBySeqInfo(seqKey: String, seqId: String): SeqDetail? {
+    override fun findBySeqInfo(seqId: String, seqKey: String): SeqDetail? {
         return queryFactory.selectFrom(QSeqDetail.seqDetail)
             .innerJoin(QSeqDetail.seqDetail.seqMaster, QSeqMaster.seqMaster)
             .where(QSeqDetail.seqDetail.seqKey.eq(seqKey), QSeqMaster.seqMaster.id.eq(seqId))
