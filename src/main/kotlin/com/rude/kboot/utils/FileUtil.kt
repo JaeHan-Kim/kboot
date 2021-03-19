@@ -43,7 +43,7 @@ class FileUtil {
         val now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"))
         val newFileNm = ("${UUID.randomUUID()}-$now")
         val fileType = when {
-            imageSrc[0].contains(MediaType.IMAGE_JPEG_VALUE) -> "jpeg"
+            imageSrc[0].contains(MediaType.IMAGE_JPEG_VALUE) -> "jpg"
             imageSrc[0].contains(MediaType.IMAGE_PNG_VALUE) -> "png"
             imageSrc[0].contains(MediaType.IMAGE_GIF_VALUE) -> "gif"
             else -> throw RuntimeException()

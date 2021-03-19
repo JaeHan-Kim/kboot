@@ -31,3 +31,14 @@ logging:
 resources:
   location: /tmp/image/
   uri-path: /image
+cloud:
+  aws:
+    s3:
+      bucket: crew-img-cdn
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    credentials:
+      accessKey:
+      secretKey:

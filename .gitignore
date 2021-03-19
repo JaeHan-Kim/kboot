@@ -325,4 +325,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+### aws.yml ###
+aws.yml
+
 # End of https://www.toptal.com/developers/gitignore/api/gradle,intellij,intellij+all,intellij+iml,windows,macos,java

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/defaultLayout}"
+>
+
+<head>
+  <title>form</title>
+  <!-- test -->
+</head>
+<div layout:fragment="content">
+  <h1 th:text="${title}">asdad</h1>
+  <div id="brandForm">
+    <form>
+      <div class="row">
+        <div class="two columns">
+          브랜드 고유번호
+        </div>
+        <div class="four columns">
+          자동 생성
+        </div>
+        <div class="two columns">
+          사용여부
+        </div>
+        <div class="four columns">
+          <label style="display: inline-block;">
+            <input type="radio" name="useYn" v-model="form.useYn" value="true"> 예
+          </label>
+          <label style="display: inline-block;">
+            <input type="radio" name="useYn" v-model="form.useYn" value="false"> 아니오
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="two columns">
+          브랜드 이름 <p>{{form.brandNm}}</p>
+        </div>
+        <div class="four columns">
+          <input class="u-full-width" name="brandNm" v-model="form.brandNm" @input="updateInput" />
+        </div>
+        <div class="two columns">
+          브랜드 영문이름 <p>{{form.brandEngNm}}</p>
+        </div>
+        <div class="four columns">
+          <input class="u-full-width" name="brandEngNm" v-model="form.brandEngNm" @input="updateInput" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="two columns">
+          전시여부
+        </div>
+        <div class="four columns">
+          <label style="display: inline-block;">
+            <input type="radio" name="dispYn" v-model="form.dispYn" value="true"> 전시
+          </label>
+          <label style="display: inline-block;">
+            <input type="radio" name="dispYn" v-model="form.dispYn" value="false"> 미전시
+          </label>
+        </div>
+        <div class="two columns">
+          전시순서 <p>{{form.dispNo}}</p>
+        </div>
+        <div class="four columns">
+          <input class="u-full-width" name="dispNo" v-model="form.dispNo" @input="updateInput" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="two columns">
+          설명 <p>{{form.explain}}</p>
+        </div>
+        <div class="ten columns">
+          <textarea class="u-full-width" name="explain" v-model="form.explain" @input="updateInput"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="two columns">
+          로고 이미지(PC)
+        </div>
+        <div class="four columns">
+          2
+        </div>
+        <div class="two columns">
+          로고 이미지(MO)
+        </div>
+        <div class="four columns">
+          2
+        </div>
+      </div>
+    </form>
+    <button @click="save">저장</button>
+  </div>
+</div>
+<th:block layout:fragment="user_script">
+  <script type="text/javascript" th:src="@{/js/brand/brandForm.js}"></script>
+</th:block>
+
+</html>
