@@ -12,9 +12,9 @@ spring:
     console:
       enabled: true
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpatest
-    username: sa
-    password:
+    # url: jdbc:h2:tcp://localhost/~/jpatest
+    # username: sa
+    # password:
     driver-class-name: org.h2.Driver
     # initialization-mode: always
   jpa:
@@ -31,6 +31,8 @@ logging:
 resources:
   location: /tmp/image/
   uri-path: /image
+server:
+  port: 5000
 cloud:
   aws:
     s3:
